@@ -36,9 +36,9 @@
 </template>
 
 <script>
-import ElPopover from 'element-ui/packages/popover';
-import ElButton from 'element-ui/packages/button';
-import {t} from 'element-ui/src/locale';
+import ElPopover from 'xiaogj-youli-element-ui/packages/popover';
+import ElButton from 'xiaogj-youli-element-ui/packages/button';
+import {t} from 'xiaogj-youli-element-ui/src/locale';
 
 export default {
   name: 'ElPopconfirm',

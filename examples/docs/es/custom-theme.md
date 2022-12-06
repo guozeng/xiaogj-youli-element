@@ -27,7 +27,7 @@ $--font-path: '~element-ui/lib/theme-chalk/fonts';
 Entonces, en el archivo principal del proyecto, importe este archivo de estilos en lugar de los estilos de Element:
 ```JS
 import Vue from 'vue'
-import Element from 'element-ui'
+import Element from 'xiaogj-youli-element-ui'
 import './element-variables.scss'
 
 Vue.use(Element)
@@ -106,7 +106,7 @@ Importar su propio tema es igual que importar el tema por defecto, sol que esta 
 
 ```javascript
 import '../theme/index.css'
-import ElementUI from 'element-ui'
+import ElementUI from 'xiaogj-youli-element-ui'
 import Vue from 'vue'
 
 Vue.use(ElementUI)
