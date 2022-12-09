@@ -15,7 +15,7 @@
   transition: border-color .3s, background-color .3s, color .3s;
   box-sizing: border-box;
   white-space: nowrap;
-  border-radius: 12px;
+  border-radius: 4px;
 
   * {
     vertical-align: middle;
@@ -25,10 +25,9 @@
     color: $--color-text-secondary;
   }
 
-  &:hover,
-  &:focus {
+  &:hover {
     outline: none;
-    background: $--menu-item-hover-fill;
+    background: $--menu-item-hover-fill !important;
     color: $--color-white;
 
     i {
@@ -233,7 +232,7 @@
 
   @include when(active) {
     color: $--color-white;
-    background: $--menu-item-hover-fill;
+    background: $--menu-item-hover-fill !important;
 
     i {
       color: inherit;
@@ -251,7 +250,7 @@
 
 
     &:hover {
-      background: $--menu-item-hover-fill;
+      background: $--menu-item-hover-fill !important;
       color: $--color-white;
     }
   }
@@ -266,7 +265,7 @@
     padding: 0 45px;
     padding-left: 50px !important;
     // min-width: 200px;
-    border-radius: 12px;
+    border-radius: 4px;
   }
 
   @include e(icon-arrow) {

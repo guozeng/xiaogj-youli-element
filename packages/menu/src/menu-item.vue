@@ -7,7 +7,6 @@
       'is-active': active,
       'is-disabled': disabled
     }"
-    @click="handleClick"
     @mouseenter="onMouseEnter"
     @focus="onMouseEnter"
     @blur="onMouseLeave"
