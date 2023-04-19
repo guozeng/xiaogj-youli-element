@@ -13,7 +13,7 @@
     @mouseleave="onMouseLeave"
   >
     <el-tooltip
-      v-if="parentMenu.$options.componentName === 'ElMenu' && rootMenu.collapse && $slots.title"
+      v-if="parentMenu.$options.componentName === 'ElMenu' && rootMenu.collapse && $slots.title && mode === 'vertical'"
       effect="dark"
       placement="right">
       <div slot="content"><slot name="title"></slot></div>

@@ -6,6 +6,7 @@ import App from './play/index.vue';
 // import 'packages/theme-chalk/src/form-item.scss';
 import 'packages/theme-chalk/src/menu.scss';
 import 'packages/theme-chalk/src/icon.scss';
+import 'packages/theme-chalk/src/tooltip.scss';
 
 Vue.use(Element);
 

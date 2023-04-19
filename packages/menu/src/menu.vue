@@ -155,6 +155,11 @@
       collapse(value) {
         if (value) this.openedMenus = [];
         this.broadcast('ElSubmenu', 'toggle-collapse', value);
+      },
+      mode(value) {
+        if (value === 'horizontal') {
+
+        }
       }
     },
     methods: {

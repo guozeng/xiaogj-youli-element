@@ -4,19 +4,17 @@
 @import "common/transition";
 
 @mixin menu-item {
-  height: 42px;
-  line-height: 42px;
+  height: 56px;
+  line-height: 56px;
   font-size: $--menu-item-font-size;
   color: $--menu-item-font-color;
-  padding: 0 10px;
+  padding: 0 20px;
   list-style: none;
   cursor: pointer;
   position: relative;
   transition: border-color .3s, background-color .3s, color .3s;
   box-sizing: border-box;
   white-space: nowrap;
-  // border-radius: 4px;
-  margin: 6px 0;
 
   * {
     vertical-align: middle;
@@ -26,14 +24,10 @@
     color: $--color-text-secondary;
   }
 
-  &:hover {
+  &:hover,
+  &:focus {
     outline: none;
-    background: $--menu-item-hover-fill ;
-    color: $--color-white;
-
-    i {
-      color: $--color-white;
-    }
+    background-color: $--menu-item-hover-fill;
   }
 
   @include when(disabled) {
@@ -44,22 +38,20 @@
 }
 
 @include b(menu) {
-  // border-right: solid 1px #e6e6e6;
+  border-right: solid 1px #e6e6e6;
   list-style: none;
   position: relative;
   margin: 0;
   padding-left: 0;
   background-color: $--menu-background-color;
   @include utils-clearfix;
-
-  // &.el-menu--horizontal {
-  //   border-bottom: solid 1px #e6e6e6;
-  // }
+  &.el-menu--horizontal {
+    border-bottom: solid 1px #e6e6e6;
+  }
 
   @include m(horizontal) {
     border-right: none;
-
-    &>.el-menu-item {
+    & > .el-menu-item {
       float: left;
       height: 60px;
       line-height: 60px;
@@ -73,18 +65,16 @@
       }
 
       &:not(.is-disabled):hover,
-      &:not(.is-disabled):focus {
+      &:not(.is-disabled):focus{
         background-color: #fff;
       }
     }
-
-    &>.el-submenu {
+    & > .el-submenu {
       float: left;
 
       &:focus,
       &:hover {
         outline: none;
-
         .el-submenu__title {
           color: $--color-text-primary;
         }
@@ -107,7 +97,6 @@
           background-color: #fff;
         }
       }
-
       & .el-submenu__icon-arrow {
         position: static;
         vertical-align: middle;
@@ -115,9 +104,7 @@
         margin-top: -3px;
       }
     }
-
     & .el-menu {
-
       & .el-menu-item,
       & .el-submenu__title {
         background-color: $--color-white;
@@ -127,41 +114,35 @@
         padding: 0 10px;
         color: $--color-text-secondary;
       }
-
       & .el-menu-item.is-active,
-      & .el-submenu.is-active>.el-submenu__title {
+      & .el-submenu.is-active > .el-submenu__title {
         color: $--color-text-primary;
       }
     }
-
     & .el-menu-item:not(.is-disabled):hover,
     & .el-menu-item:not(.is-disabled):focus {
       outline: none;
       color: $--color-text-primary;
     }
-
-    &>.el-menu-item.is-active {
+    & > .el-menu-item.is-active {
       border-bottom: 2px solid $--color-primary;
       color: $--color-text-primary;
     }
   }
-
   @include m(collapse) {
     width: 64px;
 
-    >.el-menu-item,
-    >.el-submenu>.el-submenu__title {
+    > .el-menu-item,
+    > .el-submenu > .el-submenu__title {
       [class^="el-icon-"] {
         margin: 0;
         vertical-align: middle;
         width: 24px;
         text-align: center;
       }
-
       .el-submenu__icon-arrow {
         display: none;
       }
-
       span {
         height: 0;
         width: 0;
@@ -171,7 +152,7 @@
       }
     }
 
-    >.el-menu-item.is-active i {
+    > .el-menu-item.is-active i {
       color: inherit;
     }
 
@@ -181,13 +162,6 @@
 
     .el-submenu {
       position: relative;
-      display: flex;
-      justify-content: center;
-      >div {
-        flex: 1;
-        text-align: center;
-      }
-
       & .el-menu {
         position: absolute;
         margin-left: 5px;
@@ -200,16 +174,15 @@
       }
 
       &.is-opened {
-        >.el-submenu__title .el-submenu__icon-arrow {
+        > .el-submenu__title .el-submenu__icon-arrow {
           transform: none;
         }
       }
     }
   }
-
   @include m(popup) {
     z-index: 100;
-    // min-width: 100px;
+    min-width: 200px;
     border: none;
     padding: 5px 0;
     border-radius: $--border-radius-small;
@@ -218,14 +191,12 @@
     &-bottom-start {
       margin-top: 5px;
     }
-
     &-right-start {
       margin-left: 5px;
       margin-right: 5px;
     }
   }
 }
-
 @include b(menu-item) {
   @include menu-item;
 
@@ -236,11 +207,8 @@
     font-size: 18px;
     vertical-align: middle;
   }
-
   @include when(active) {
-    color: $--color-white;
-    background: $--menu-item-hover-fill;
-
+    color: $--color-primary;
     i {
       color: inherit;
     }
@@ -253,58 +221,40 @@
   padding-left: 0;
 
   @include e(title) {
-    // flex: 1;
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
     @include menu-item;
 
-
-    // &:hover {
-    //   background: $--menu-item-hover-fill !important;
-    //   color: $--color-white;
-    // }
+    &:hover {
+      background-color: $--menu-item-hover-fill;
+    }
   }
-
   & .el-menu {
     border: none;
   }
-
   & .el-menu-item {
-    height: 40px;
-    line-height: 40px;
-    // padding: 0 25px;
-    padding-left: 40px !important;
-    // min-width: 200px;
-    // padding-right: 20px;
-    // border-radius: 4px;
-    // text-align: center;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 45px;
+    min-width: 200px;
   }
-
   @include e(icon-arrow) {
     position: absolute;
     top: 50%;
-    right: 10px;
+    right: 20px;
     margin-top: -7px;
     transition: transform .3s;
     font-size: 12px;
   }
-
   @include when(active) {
     .el-submenu__title {
       border-bottom-color: $--color-primary;
-      background-color: #1677FF !important;
     }
   }
-
   @include when(opened) {
-    >.el-submenu__title .el-submenu__icon-arrow {
+    > .el-submenu__title .el-submenu__icon-arrow {
       transform: rotateZ(180deg);
     }
   }
-
   @include when(disabled) {
-
     .el-submenu__title,
     .el-menu-item {
       opacity: 0.25;
@@ -312,7 +262,6 @@
       background: none !important;
     }
   }
-
   [class^="el-icon-"] {
     vertical-align: middle;
     margin-right: 5px;
@@ -323,10 +272,9 @@
 }
 
 @include b(menu-item-group) {
-  >ul {
+  > ul {
     padding: 0;
   }
-
   @include e(title) {
     padding: 7px 0 7px 20px;
     line-height: normal;
