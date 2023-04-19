@@ -11,7 +11,7 @@
       const component = (
         <ul
           role="menubar"
-          key={ +this.collapse }
+          key={this.mode + (+this.collapse) }
           style={{ backgroundColor: this.backgroundColor || '' }}
           class={{
             'el-menu--horizontal': this.mode === 'horizontal',
@@ -272,7 +272,7 @@
           this.routeToItem(item, (error) => {
             this.activeIndex = oldActiveIndex;
             if (error) {
-              // vue-router 3.1.0+ push/replace cause NavigationDuplicated error 
+              // vue-router 3.1.0+ push/replace cause NavigationDuplicated error
               // https://github.com/ElemeFE/element/issues/17044
               if (error.name === 'NavigationDuplicated') return
               console.error(error)
@@ -322,4 +322,5 @@
       this.$watch('items', this.updateActiveIndex);
     }
   };
+  // hoverBackground 向下传递
 </script>

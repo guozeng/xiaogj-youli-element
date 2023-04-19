@@ -28,7 +28,7 @@
 
   &:hover {
     outline: none;
-    background: $--menu-item-hover-fill !important;
+    background: $--menu-item-hover-fill ;
     color: $--color-white;
 
     i {
@@ -239,7 +239,7 @@
 
   @include when(active) {
     color: $--color-white;
-    background: $--menu-item-hover-fill !important;
+    background: $--menu-item-hover-fill;
 
     i {
       color: inherit;
@@ -260,10 +260,10 @@
     @include menu-item;
 
 
-    &:hover {
-      background: $--menu-item-hover-fill !important;
-      color: $--color-white;
-    }
+    // &:hover {
+    //   background: $--menu-item-hover-fill !important;
+    //   color: $--color-white;
+    // }
   }
 
   & .el-menu {
