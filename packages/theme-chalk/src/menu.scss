@@ -3,6 +3,9 @@
 @import "common/var";
 @import "common/transition";
 
+$--menu-item-hover-fill: #1677ff;
+$--menu-item-font-color: #ffffffb3;
+
 @mixin menu-item {
   height: 56px;
   line-height: 56px;
@@ -15,6 +18,8 @@
   transition: border-color .3s, background-color .3s, color .3s;
   box-sizing: border-box;
   white-space: nowrap;
+  margin: 6px 0;
+  border-radius: 4px;
 
   * {
     vertical-align: middle;
@@ -27,7 +32,11 @@
   &:hover,
   &:focus {
     outline: none;
+    color: $--color-white;
     background-color: $--menu-item-hover-fill;
+    i{
+      color: inherit;
+    }
   }
 
   @include when(disabled) {
@@ -38,12 +47,12 @@
 }
 
 @include b(menu) {
-  border-right: solid 1px #e6e6e6;
+  // border-right: solid 1px #e6e6e6;
   list-style: none;
   position: relative;
   margin: 0;
   padding-left: 0;
-  background-color: $--menu-background-color;
+  // background-color: $--menu-background-color;
   @include utils-clearfix;
   &.el-menu--horizontal {
     border-bottom: solid 1px #e6e6e6;
@@ -134,6 +143,8 @@
 
     > .el-menu-item,
     > .el-submenu > .el-submenu__title {
+      height: 64px;
+      line-height: 64px;
       [class^="el-icon-"] {
         margin: 0;
         vertical-align: middle;
@@ -184,9 +195,11 @@
     z-index: 100;
     min-width: 200px;
     border: none;
-    padding: 5px 0;
+    // padding: 5px 0;
     border-radius: $--border-radius-small;
     box-shadow: $--box-shadow-light;
+    padding: 5px 10px;
+    background-color: #232650;
 
     &-bottom-start {
       margin-top: 5px;
@@ -194,6 +207,12 @@
     &-right-start {
       margin-left: 5px;
       margin-right: 5px;
+    }
+    & {
+      .el-menu-item, .el-submenu__title{
+        height: 50px;
+        line-height: 50px;
+      }
     }
   }
 }
@@ -208,7 +227,8 @@
     vertical-align: middle;
   }
   @include when(active) {
-    color: $--color-primary;
+    color: $--color-white;
+    background-color: $--menu-item-hover-fill;
     i {
       color: inherit;
     }
@@ -224,6 +244,7 @@
     @include menu-item;
 
     &:hover {
+      color: $--color-white;
       background-color: $--menu-item-hover-fill;
     }
   }
@@ -247,6 +268,15 @@
   @include when(active) {
     .el-submenu__title {
       border-bottom-color: $--color-primary;
+    }
+    &:not(.is-opened) {
+      .el-submenu__title {
+        color: $--color-white;
+        background-color: $--menu-item-hover-fill;
+        [class^="el-icon-"] {
+          color: inherit;
+        }
+      }
     }
   }
   @include when(opened) {

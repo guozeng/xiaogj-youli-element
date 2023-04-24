@@ -259,7 +259,6 @@
       this.initPopper();
     },
     beforeDestroy() {
-      console.error('submenu beforeDestroy');
       this.parentMenu.removeSubmenu(this);
       this.rootMenu.removeSubmenu(this);
     },
